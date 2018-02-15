@@ -11,13 +11,11 @@ import { Movie } from '../model/movie';
 export class MoviesComponent implements OnInit {
   title: string = "All Movies";
   movies: Movie[];
- // @Output() 
-  btnFunc:string;
+  
   constructor(private moviesService: AppDataService) { }
 
   ngOnInit() {
     this.movies = this.moviesService.getMovies();
-    this.btnFunc = 'add';
   }
 
   addMovie(movie:Movie){

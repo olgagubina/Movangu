@@ -10,15 +10,12 @@ import { Movie } from '../model/movie';
 export class UserMoviesComponent implements OnInit {
   title: string = "User Movies";
   movies: Movie[];
-  //@Output() 
-  btnFunc:string;
 
   constructor(private moviesService: AppDataService) { }
 
   ngOnInit() {
     this.movies = this.moviesService.getUserMovies();
     console.log(this.movies);
-    this.btnFunc = 'delete';
   }
 
   removeMovie(movie){

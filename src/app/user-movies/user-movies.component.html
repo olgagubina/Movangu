@@ -4,8 +4,5 @@
       <movie *ngFor = "let movie of movies; let idx = index" [movie]="movie"
       (innerButtonClick)="removeMovie($event)" btnText="Delete" ></movie>
   </ul>
-  
-
- <!-- <app-movie-list [btnFunc]="btnFunc" [movies]="movies" (deleteMovie)="deleteMovie($event)"></app-movie-list> -->
- <div *ngIf="movies.length == 0">Select movies from below to add to your collection</div>
+<div *ngIf="movies.length == 0">Select movies from below to add to your collection</div>
 </div>
