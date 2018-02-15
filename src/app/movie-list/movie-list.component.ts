@@ -1,4 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { AppDataService } from '../app-data.service';
+import { Movie } from '../model/movie'; 
+/* import { Output } from '@angular/core/src/metadata/directives'; */
 
 @Component({
   selector: 'app-movie-list',
@@ -6,10 +9,13 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./movie-list.component.css']
 })
 export class MovieListComponent implements OnInit {
+  @Input() btnFunc: string;
+  @Input() movies: Movie[];
 
-  constructor() { }
-
+  constructor(private movieService: AppDataService) { }
+  
   ngOnInit() {
+    console.log(this.movies);
   }
 
 }

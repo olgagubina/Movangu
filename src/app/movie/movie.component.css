@@ -1,0 +1,19 @@
+.movie{
+    width: 10em;
+    height: 20em;
+    display: inline-block;
+    margin: 1em;
+    vertical-align: top;
+    overflow: hidden;
+}
+
+.movie img{
+    width: 100%;
+}
+
+.movie .btn {
+    position: absolute;
+    top: 17em;
+    left: 3em;
+    cursor: pointer;
+}

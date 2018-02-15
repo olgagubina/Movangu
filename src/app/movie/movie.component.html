@@ -1,3 +1,7 @@
-<p>
-  movie works!
-</p>
+<li class='movie card' >
+      <span class="m-price">${{movie.price}}</span>
+      <span class="m-title">{{movie.title}} <span>({{movie.year}})</span></span>
+      <img src="{{movie.img}}" alt="{{movie.title}}" >
+      <p class="m-description">{{movie.descrShort}}</p> 
+      <button class='btn btn-info' (click)="addMovie()">{{btnFunc}}</button>
+</li>

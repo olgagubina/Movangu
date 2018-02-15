@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input, Output} from '@angular/core';
+import { AppDataService } from '../app-data.service';
+import { Movie } from '../model/movie';
 
 @Component({
   selector: 'app-user-movies',
@@ -6,10 +8,19 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./user-movies.component.css']
 })
 export class UserMoviesComponent implements OnInit {
+  title: string = "User Movies";
+  movies: Movie[];
+  @Output() btnFunc:string;
 
-  constructor() { }
+  constructor(private moviesService: AppDataService) { }
 
   ngOnInit() {
+    this.movies = this.moviesService.getUserMovies();
+    console.log(this.movies);
+    this.btnFunc = 'delete';
   }
 
+  addMovie(){
+  //  this.moviesService.addMovie(movie:Movie);
+  }
 }
