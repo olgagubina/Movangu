@@ -10,7 +10,8 @@ import { Movie } from '../model/movie';
 export class UserMoviesComponent implements OnInit {
   title: string = "User Movies";
   movies: Movie[];
-  @Output() btnFunc:string;
+  //@Output() 
+  btnFunc:string;
 
   constructor(private moviesService: AppDataService) { }
 
@@ -20,7 +21,7 @@ export class UserMoviesComponent implements OnInit {
     this.btnFunc = 'delete';
   }
 
-  addMovie(){
-  //  this.moviesService.addMovie(movie:Movie);
+  removeMovie(movie){
+   this.moviesService.deleteMovie(movie);
   }
 }

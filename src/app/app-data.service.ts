@@ -26,10 +26,18 @@ export class AppDataService {
   	return this.userMovies;
   }
 
+  _movieExistInMyCollecion(movie:Movie):boolean{
+   let index = this.userMovies.findIndex((currItem)=>currItem.id === movie.id);
+   return index > -1;
+  }
+
   addMovie(movie: Movie) {
-    this._removeFromList(movie.id);
-    movie.id = this.generateId();
-    this.userMovies.push(movie);
+    if (!this._movieExistInMyCollecion(movie))
+    {
+      this._removeFromList(movie.id);
+      movie.id = this.generateId();
+      this.userMovies.push(movie);
+    }
   }
 
   deleteMovie(movie: Movie) {

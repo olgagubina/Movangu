@@ -1,6 +1,4 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
-
-import { AppDataService } from '../app-data.service';
 import { Movie } from '../model/movie';
 
 @Component({
@@ -11,19 +9,25 @@ import { Movie } from '../model/movie';
 
 export class MovieComponent implements OnInit {
   @Input() movie: Movie;
-  @Input() btnFunc: string;
+  @Input() btnText: string;
+  @Output() innerButtonClick: EventEmitter<Movie>= new EventEmitter<Movie>();
   
-  constructor(private moviesService: AppDataService) { }
+  constructor() { }
 
   ngOnInit() {
+    console.log(this.btnText);
     //this.movies = this.moviesService.getMovies();
   }
 
-  addMovie() {
-    this.moviesService.addMovie(this.movie); 
+  clickFunc(){
+    this.innerButtonClick.emit(this.movie);
   }
 
-  deleteMovie() {
-    this.moviesService.deleteMovie(this.movie); 
-  }
+  // addMovie() {
+  //   this.moviesService.addMovie(this.movie); 
+  // }
+
+  // deleteMovie() {
+  //   this.moviesService.deleteMovie(this.movie); 
+  // }
 }
