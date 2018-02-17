@@ -1,4 +1,4 @@
-import { Component, OnInit, Output } from '@angular/core';
+import { Component, OnInit, Output,Input } from '@angular/core';
 import { AppDataService } from '../app-data.service';
 import { Movie } from '../model/movie';
 
@@ -11,15 +11,23 @@ import { Movie } from '../model/movie';
 export class MoviesComponent implements OnInit {
   title: string = "All Movies";
   movies: Movie[];
+  @Input() budget: number;
   
   constructor(private moviesService: AppDataService) { }
 
   ngOnInit() {
     this.movies = this.moviesService.getMovies();
+  //  this.budget = this.moviesService.getBudget();
   }
 
   addMovie(movie:Movie){
     this.moviesService.addMovie(movie);
+ //   this.budget = this.moviesService.getBudget();
+  }
+
+  searchMovie(str){
+    this.moviesService.searchAllMovies(str);
+    this.movies = this.moviesService.getMovies();
   }
   
 }

@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component,OnInit } from '@angular/core';
+import { AppDataService } from './app-data.service';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +8,11 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'Movangu';
+  budget:number;
+  constructor(private moviesService: AppDataService) { }
+
+  ngOnInit(){
+ //   this.budget = this.moviesService.getBudget();
+  }
+
 }

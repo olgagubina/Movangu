@@ -9,12 +9,16 @@ const MOVIES = [
   {id:4,img:"http://www.cgmeetup.net/forums/uploads/gallery/album_1392/med_gallery_646_1392_48130.jpg",title: "Beauty and the Beast", year: 2016,price:3, descrShort:"Basically the same as the original, except now Hermi-- Emma Wattson plays Belle, fittingly so I would think, given how breath-takingly pretty she is. I mean wow. Rumor has it she'll whip out a wand and turn Gaston into a toad."}
 ];
 
-let USERMOVIES: any;
+let USERMOVIES = [{id:0,img:"http://static.comicvine.com/uploads/original/10/104544/4068923-tarzan-wallpaper-walt-disneys-tarzan-6248938-1024-768.jpg",title:"Tarzan", price:3, year:1999, descrShort:"The movie is about the life of Tarzan. Tarzan was a small orphan who was raised by an ape named Kala since he was a child. He believed that this was his family, but on an expedition Jane Porter is rescued by Tarzan."},
+{id:1,img:"http://cdn.collider.com/wp-content/uploads/2016/04/the-lion-king-image.jpg",title:"The Lion King", year:1994,price:2, descrShort:"A young lion Prince is cast out of his pride by his cruel uncle, who claims he killed his father. While the uncle rules with an iron paw, the prince grows up beyond the Savannah, living by a philosophy: No worries for the rest of your days."}];
+
+
 
 @Injectable()
 export class AppDataService {
   movies:Movie[] = MOVIES;
-  userMovies:Movie[] = [] || USERMOVIES;
+  userMovies:Movie[] = USERMOVIES || [];
+  budget:number = 90;
 
   constructor() { }
 
@@ -26,24 +30,54 @@ export class AppDataService {
   	return this.userMovies;
   }
 
+  getBudget(): number {
+  	return this.budget;
+  }
+
+  /*manipulate func*/
   _movieExistInMyCollecion(movie:Movie):boolean{
-   let index = this.userMovies.findIndex( currItem => currItem.id == movie.id);
-   console.log(index)
+   let index = this.userMovies.findIndex( currItem => currItem.id === movie.id);
    return index > -1;
   }
 
   addMovie(movie: Movie) {
      if (!this._movieExistInMyCollecion(movie))
     {
-      this.userMovies.push(movie);
-      console.log(this.userMovies)
-
-    } 
+      this.budget-= movie.price;
+      this.userMovies.push(movie); 
+    }
   }
 
   deleteMovie(movie: Movie) {
-    let currInd = this.userMovies.findIndex(el => el.id == movie.id);
+    let currInd = this.userMovies.findIndex(el => el.id === movie.id);
+    let currAmount = this.userMovies[currInd].price;
+    this.budget+=currAmount;
     this.userMovies.splice(currInd,1);
   }
 
+  /*search funcs*/
+
+  searchAllMovies(str){
+    this.movies = MOVIES;
+    this.movies = this._searchInArr(this.movies,str);
+  }
+
+  searchUserMovies(str){
+    this.userMovies = this._searchInArr(this.userMovies,str);
+  }
+
+  _searchInArr(arr,str){
+    let lowerStr = str.toLowerCase();
+    return arr.filter((element) => {
+      let lowerEl = element.title.toLowerCase();
+      if (lowerEl.search(lowerStr) > -1){
+        return element
+      }
+    });
+  }
+
 }
+
+
+
+

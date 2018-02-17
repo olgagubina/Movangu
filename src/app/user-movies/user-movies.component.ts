@@ -8,17 +8,26 @@ import { Movie } from '../model/movie';
   styleUrls: ['./user-movies.component.css']
 })
 export class UserMoviesComponent implements OnInit {
-  title: string = "User Movies";
+  title: string = "My Movies";
   movies: Movie[];
+  @Input() budget: number;
 
   constructor(private moviesService: AppDataService) { }
 
   ngOnInit() {
     this.movies = this.moviesService.getUserMovies();
     console.log(this.movies);
+   // this.budget = this.moviesService.getBudget();
   }
 
   removeMovie(movie){
    this.moviesService.deleteMovie(movie);
+  // this.budget = this.moviesService.getBudget();
+  }
+
+  searchMovie(str){
+    this.moviesService.searchUserMovies(str);
+    this.movies = this.moviesService.getUserMovies();
+
   }
 }

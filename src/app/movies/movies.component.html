@@ -1,5 +1,6 @@
 <div>
     <h3>{{title}}</h3>
+    <app-search (searchButtonClick)="searchMovie($event)"></app-search>
      <ul>
         <movie *ngFor = "let movie of movies; let idx = index" [movie]="movie"
         (innerButtonClick)="addMovie($event)" btnText="Add"></movie>

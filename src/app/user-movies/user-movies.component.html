@@ -1,5 +1,7 @@
 <div>
   <h3>{{title}}</h3>
+  <app-search (searchButtonClick)="searchMovie($event)"></app-search>
+  <span class="budget">{{budget}}</span>
   <ul>
       <movie *ngFor = "let movie of movies; let idx = index" [movie]="movie"
       (innerButtonClick)="removeMovie($event)" btnText="Delete" ></movie>
