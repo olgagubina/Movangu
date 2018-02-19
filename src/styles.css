@@ -1,3 +1,11 @@
 /* You can add global styles to this file, and also import other style files */
 @import "~bootstrap/dist/css/bootstrap.min.css";
 @import "~font-awesome/css/font-awesome.css";
+@import '~@angular/material/prebuilt-themes/deeppurple-amber.css';
+@import url('https://fonts.googleapis.com/css?family=Varela+Round');
+@import url('https://fonts.googleapis.com/css?family=Pacifico');
+
+body {
+    background-image: url('https://dijitalkoleksiyon.files.wordpress.com/2012/09/credits-background.jpg');
+    background-size: cover;
+}

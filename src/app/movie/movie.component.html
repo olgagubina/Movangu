@@ -1,7 +1,7 @@
 <li class='movie card' >
-      <span class="m-price">${{movie.price}}</span>
-      <span class="m-title">{{movie.title}} <span>({{movie.year}})</span></span>
-      <img src="{{movie.img}}" alt="{{movie.title}}" >
+      <img src="{{movie.img}}" alt="{{movie.title}}">
+      <span class="m-title">{{movie.title}} <span class="m-year">({{movie.year}})</span></span>
       <p class="m-description">{{movie.descrShort}}</p> 
-      <button class='btn btn-info' (click)="clickFunc()">{{btnText}}</button>
+      <span class="m-price">Cost: ${{movie.price}}</span>
+      <button class='button' (click)="clickFunc()">{{btnText}}</button>
 </li>

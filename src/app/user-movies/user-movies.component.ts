@@ -8,7 +8,7 @@ import { Movie } from '../model/movie';
   styleUrls: ['./user-movies.component.css']
 })
 export class UserMoviesComponent implements OnInit {
-  title: string = "User Movies";
+  title: string = "Your Movies";
   movies: Movie[];
 
   constructor(private moviesService: AppDataService) { }

@@ -1,19 +1,54 @@
 .movie{
-    width: 10em;
-    height: 20em;
-    display: inline-block;
+    float: left;
+    width: 30%;
+    height: 27em;
+    /* display: inline-block; */
     margin: 1em;
     vertical-align: top;
     overflow: hidden;
+    background-color: rgb(240, 233, 234);
 }
 
 .movie img{
     width: 100%;
+    height: 40%;
 }
 
-.movie .btn {
-    position: absolute;
-    top: 17em;
-    left: 3em;
+.button {
+    width: 70px;
+    display: block;
+    margin: auto;
     cursor: pointer;
+    padding: 10px;
+    border-radius: 5px;
+    font-family: 'Pacifico', cursive;
+    outline: none;
+}
+
+.m-title {
+    font-size: 18px;
+    font-family: 'Varela Round', sans-serif;
+    text-align: left;
+    padding: 10px;
+}
+
+.m-price {
+    font-size: 14px;
+    font-family: 'Varela Round', sans-serif;
+    text-align: left;
+    padding: 5px;
+}
+
+.m-year {
+    font-size: 12px;
+    font-family: 'Varela Round', sans-serif;
+    text-align: left;
+}
+
+.m-description {
+    font-family: 'Varela Round', sans-serif;
+    font-size: 12px;
+    text-align: left;
+    padding: 10px;
+    margin: 0;
 }

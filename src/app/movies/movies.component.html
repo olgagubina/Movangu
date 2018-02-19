@@ -1,5 +1,5 @@
-<div>
-    <h3>{{title}}</h3>
+<h3>{{title}}</h3>
+<div class="container">
      <ul>
         <movie *ngFor = "let movie of movies; let idx = index" [movie]="movie"
         (innerButtonClick)="addMovie($event)" btnText="Add"></movie>

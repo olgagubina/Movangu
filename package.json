@@ -13,11 +13,13 @@
   "private": true,
   "dependencies": {
     "@angular/animations": "^5.2.0",
+    "@angular/cdk": "^5.2.1",
     "@angular/common": "^5.2.0",
     "@angular/compiler": "^5.2.0",
     "@angular/core": "^5.2.0",
     "@angular/forms": "^5.2.0",
     "@angular/http": "^5.2.0",
+    "@angular/material": "^5.2.1",
     "@angular/platform-browser": "^5.2.0",
     "@angular/platform-browser-dynamic": "^5.2.0",
     "@angular/router": "^5.2.0",
@@ -48,5 +50,16 @@
     "ts-node": "~4.1.0",
     "tslint": "~5.9.1",
     "typescript": "~2.5.3"
-  }
+  },
+  "description": "This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.6.8.",
+  "main": "karma.conf.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/olgagubina/Movangu-app.git"
+  },
+  "author": "",
+  "bugs": {
+    "url": "https://github.com/olgagubina/Movangu-app/issues"
+  },
+  "homepage": "https://github.com/olgagubina/Movangu-app#readme"
 }

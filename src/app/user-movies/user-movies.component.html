@@ -1,8 +1,8 @@
-<div>
-  <h3>{{title}}</h3>
+<h3>{{title}}</h3>
+<div class="container">
   <ul>
       <movie *ngFor = "let movie of movies; let idx = index" [movie]="movie"
       (innerButtonClick)="removeMovie($event)" btnText="Delete" ></movie>
   </ul>
-<div *ngIf="movies.length == 0">Select movies from below to add to your collection</div>
+<div class="prescr" *ngIf="movies.length == 0">Select movies from below to add to your collection</div>
 </div>
