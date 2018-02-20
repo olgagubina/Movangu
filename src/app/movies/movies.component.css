@@ -1,8 +1,8 @@
-h3 {
-    color:rgba(240, 233, 234, 0.911);
-    padding: 20px;
-    font-family: 'Pacifico', cursive;
-    font-size: 30px;
+.container {
+    display: block;
+    /* background-color: rgba(240, 233, 234, 0.438); */
+    width: 95%;
+    height: auto;
 }
 
 ul {
@@ -10,9 +10,20 @@ ul {
     overflow: auto;
 }
 
-.container {
-    display: block;
-    /* background-color: rgba(240, 233, 234, 0.438); */
-    width: 95%;
-    height: auto;
+h3 {
+    color:rgba(240, 233, 234, 0.911);
+    padding: 20px 50px ;
+    font-family: 'Pacifico', cursive;
+    font-size: 30px;
+    text-align: left;
+    float: left;
+    width: auto;
+}
+
+input {
+    color: grey;
+    background-color:rgba(240, 233, 234, 0.911);
+    font-size: 14px;
+    margin: 26px 57px;
+    float: right;
 }

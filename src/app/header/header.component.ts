@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { User } from '../model/user';
+import { AppDataService } from '../app-data.service';
 
 @Component({
   selector: 'app-header',
@@ -6,10 +8,13 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent implements OnInit {
+  users: User[];
+  title = 'Movangu';
 
-  constructor() { }
+  constructor(private appdataservice: AppDataService) { }
 
   ngOnInit() {
+    this.users = this.appdataservice.getUser();
   }
 
 }

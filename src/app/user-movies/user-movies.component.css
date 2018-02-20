@@ -18,7 +18,23 @@ ul {
 
 h3 {
     color:rgba(240, 233, 234, 0.911);
-    padding: 20px;
+    padding: 20px 50px ;
     font-family: 'Pacifico', cursive;
     font-size: 30px;
+    text-align: left;
+    float: left;
+    width: auto;
+}
+
+hr {
+    width: 100%;
+    border-top: 3px double rgba(240, 233, 234, 0.911);;
+}
+
+input {
+    color: grey;
+    background-color:rgba(240, 233, 234, 0.911);
+    font-size: 14px;
+    margin: 26px 0px;
+    float: right;
 }

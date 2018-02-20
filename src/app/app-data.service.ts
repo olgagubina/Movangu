@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Movie } from './model/movie';
+import { User } from './model/user';
 
 const MOVIES = [
   {id:0,img:"http://static.comicvine.com/uploads/original/10/104544/4068923-tarzan-wallpaper-walt-disneys-tarzan-6248938-1024-768.jpg",title:"Tarzan", price:3, year:1999, descrShort:"The movie is about the life of Tarzan. Tarzan was a small orphan who was raised by an ape named Kala since he was a child. He believed that this was his family, but on an expedition Jane Porter is rescued by Tarzan."},
@@ -9,17 +10,24 @@ const MOVIES = [
   {id:4,img:"http://www.cgmeetup.net/forums/uploads/gallery/album_1392/med_gallery_646_1392_48130.jpg",title: "Beauty and the Beast", year: 2016,price:3, descrShort:"Basically the same as the original, except now Hermi-- Emma Wattson plays Belle, fittingly so I would think, given how breath-takingly pretty she is. I mean wow. Rumor has it she'll whip out a wand and turn Gaston into a toad."}
 ];
 
+const USERS = [{name:'Andres', budget:13}];
+
 let USERMOVIES: any;
 
 @Injectable()
 export class AppDataService {
   movies:Movie[] = MOVIES;
   userMovies:Movie[] = [] || USERMOVIES;
+  users:User[] = USERS;
 
   constructor() { }
 
   getMovies(): Movie[] {
   	return this.movies;
+  }
+
+  getUser(): User[] {
+    return this.users;
   }
 
   getUserMovies(): Movie[] {
@@ -28,22 +36,23 @@ export class AppDataService {
 
   _movieExistInMyCollecion(movie:Movie):boolean{
    let index = this.userMovies.findIndex( currItem => currItem.id == movie.id);
-   console.log(index)
    return index > -1;
   }
 
   addMovie(movie: Movie) {
      if (!this._movieExistInMyCollecion(movie))
-    {
+    { if(this.users[0].budget >= movie.price) {
+      this.users[0].budget -= movie.price;
       this.userMovies.push(movie);
-      console.log(this.userMovies)
-
+      }else {
+        alert ("Sorry, you are out of the budget. You can fulfill it or choose another film.")
+      }
     } 
   }
 
   deleteMovie(movie: Movie) {
     let currInd = this.userMovies.findIndex(el => el.id == movie.id);
     this.userMovies.splice(currInd,1);
+    this.users[0].budget += movie.price;
   }
-
 }

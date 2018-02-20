@@ -1,4 +1,5 @@
 import { Component, OnInit, Input, Output} from '@angular/core';
+import { FormsModule } from '@angular/forms';
 import { AppDataService } from '../app-data.service';
 import { Movie } from '../model/movie';
 

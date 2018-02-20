@@ -1,4 +1,5 @@
 import { Component, OnInit, Output } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 import { AppDataService } from '../app-data.service';
 import { Movie } from '../model/movie';
 
@@ -21,5 +22,4 @@ export class MoviesComponent implements OnInit {
   addMovie(movie:Movie){
     this.moviesService.addMovie(movie);
   }
-  
 }

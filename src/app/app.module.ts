@@ -10,6 +10,8 @@ import { UserMoviesComponent } from './user-movies/user-movies.component';
 import { HeaderComponent } from './header/header.component';
 import { SearchComponent } from './search/search.component';
 import { AppDataService } from './app-data.service';
+import { FilterPipe} from './filter.pipe';
+
 
 @NgModule({
   declarations: [
@@ -18,12 +20,13 @@ import { AppDataService } from './app-data.service';
     MovieComponent,
     UserMoviesComponent,
     HeaderComponent,
-    SearchComponent
+    SearchComponent,
+    FilterPipe
   ],
   imports: [
     BrowserModule, FormsModule
   ],
-  providers: [AppDataService],
+  providers: [AppDataService, FilterPipe],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
