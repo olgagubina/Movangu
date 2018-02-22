@@ -1,5 +1,5 @@
 export class Movie {
-    id: number;
+    _id: number;
     img: string;
     title: string;
     price: number;
